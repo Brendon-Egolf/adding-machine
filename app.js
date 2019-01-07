@@ -38,7 +38,7 @@ class app {
                     app.render(req.url.slice(1), 'application/ecmascript', httpHandler, 'utf-8');
                 } else if (req.url.indexOf('/css/') >= 0) {
                     app.render(req.url.slice(1), 'text/css', httpHandler, 'utf-8');
-                    //console.log('rendering ' + req.url.slice(1));
+                    console.log('rendering ' + req.url.slice(1));
                 } else if (req.url.indexOf('/images/') >= 0) {
                     app.render(req.url.slice(1), 'image/jpeg', httpHandler, 'binary');
                 } else if (req.url == '/') {

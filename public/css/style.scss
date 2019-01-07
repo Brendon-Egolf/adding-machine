@@ -1,19 +1,30 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+$default-row-height: 23.5%;
+$subtract-offset-row-height: 12.5%;
+$default-column-width: 11.625%;
+$calc-width: 40%;
+$calc-height-ratio: 50%;
+$grid-col-gap: 1%;
+$grid-row-gap: 2%;
+$columns: 9;
+$border-color: #dfe1e5;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
   display: flex;
   justify-content: center;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .box4-3 {
   position: relative;
-  width: 40%;
+  width: $calc-width;
 }
 
 .box4-3:before {
   content: "";
   display: block;
-  padding-top: 50%;
+  padding-top: $calc-height-ratio;
 }
 
 .content {
@@ -26,15 +37,18 @@ body {
 
 #calc-container {
   display: grid;
-  grid-template-columns: repeat(9, 11.625% [column-start]);
-  grid-template-rows: 23.5% [row-start] 12.5% [row-start] 11% [row-start] repeat(2, 23.5% [row-start]);
+  grid-template-columns: repeat($columns, $default-column-width [column-start]);
+  grid-template-rows: $default-row-height [row-start]
+    $subtract-offset-row-height [row-start]
+    $default-row-height - $subtract-offset-row-height [row-start]
+    repeat(2, $default-row-height [row-start]);
   justify-items: stretch;
-  grid-gap: 2% 1%;
+  grid-gap: $grid-row-gap $grid-col-gap;
 }
 
 .item {
-  border: solid 1px #dfe1e5;
-  border-radius: 5px;
+  border: solid 1px $border-color;
+	border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -180,4 +194,3 @@ body {
   grid-row: 1;
 }
 
-/*# sourceMappingURL=style.css.map */
